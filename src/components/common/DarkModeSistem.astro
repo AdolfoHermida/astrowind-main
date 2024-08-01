@@ -1,0 +1,21 @@
+<script>
+  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && userPrefersDark)) {
+    document.documentElement.classList.add('dark');
+  } else if (localStorage.theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  }
+
+  // Listener para cambios en la preferencia del sistema operativo
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (e.matches) {
+      if (!('theme' in localStorage)) {
+        document.documentElement.classList.add('dark');
+      }
+    } else {
+      if (!('theme' in localStorage)) {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  });
+</script>

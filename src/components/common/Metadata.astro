@@ -1,0 +1,68 @@
+---
+import merge from 'lodash.merge';
+import { AstroSeo } from '@astrolib/seo';
+import type { Props as AstroSeoProps } from '@astrolib/seo';
+import { SITE, I18N } from 'astrowind:config';
+import type { MetaData } from '~/types';
+import { getCanonical } from '~/utils/permalinks';
+import { adaptOpenGraphImages } from '~/utils/images';
+
+import logoLight from '../images/AH_SEO_negro_sin_fondo.png';
+
+export interface Props extends MetaData {
+  dontUseTitleTemplate?: boolean;
+}
+
+const {
+  title,
+  ignoreTitleTemplate = false,
+  canonical = String(getCanonical(String(Astro.url.pathname))),
+  robots = {},
+  description,
+  openGraph = {},
+  twitter = {},
+} = Astro.props;
+
+// Asegurarnos de que la imagen por defecto se establezca correctamente
+const defaultOpenGraphImages = [
+  {
+    url: 'https://ahseo.es/images/logo-ah-seo.png', // Ruta de la imagen por defecto
+    width: 1200,
+    height: 628,
+    alt: 'AH SEO',
+  },
+];
+
+const seoProps: AstroSeoProps = merge(
+  {
+    title: '',
+    titleTemplate: '%s',
+    canonical: canonical,
+    noindex: typeof robots.index !== 'undefined' ? !robots.index : true,
+    nofollow: typeof robots.follow !== 'undefined' ? !robots.follow : false,
+    description: undefined,
+    openGraph: {
+      url: canonical,
+      site_name: 'AH SEO', // Actualizar el site name
+      images: defaultOpenGraphImages,
+      locale: 'es_ES', // Actualizar el locale a español de España
+      type: 'website',
+    },
+    twitter: {
+      cardType: openGraph?.images?.length ? 'summary_large_image' : 'summary',
+    },
+  },
+  {
+    title: title,
+    titleTemplate: ignoreTitleTemplate ? '%s' : undefined,
+    canonical: canonical,
+    noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
+    nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
+    description: description,
+    openGraph: { url: canonical, ...openGraph },
+    twitter: twitter,
+  }
+);
+---
+
+<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />

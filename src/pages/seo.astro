@@ -1,0 +1,403 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import CTA from '~/components/widgets/CTA.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+
+const metadata = {
+  title: 'Agencia SEO en León',
+  ignoreTitleTemplate: true,
+  description:
+    'Te cobro tanto -> Te hago ganar tanto al mes -> No me necesitas para mantenerlo. Gto por contrato. Agencia SEO en León.',
+  robots: {
+    index: true, // Establece la página para indexación
+    follow: true, // Permite seguir los enlaces de la página
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Steps2
+    title="Agencia SEO en León"
+    subtitle="Te lo digo en cristiano, atiende estos 3 puntos:"
+    items={[
+      {
+        title: 'Todo bien clarito.',
+        description: 'Te cobro tanto -> Te hago ganar tanto al mes -> No me necesitas para mantenerlo.',
+      },
+      {
+        title: 'Garantizado por contrato.',
+        description:
+          'O no trabajamos. Yo el dinero lo gano cuando pasamos al siguiente nivel. Cuando veas los precios de los programas entenderás esto que te acabo de decir.',
+      },
+      {
+        title: 'Hacemos el SEO que necesitas para llegar SEGURO y rápido.',
+        description: 'Aquí debajo tienes los programas con sus precios. Cuando los leas lo entenderás.',
+      },
+    ]}
+  />
+  <!-- Pricing Widget ******************* -->
+  <Pricing
+    id="precios"
+    title="Los 3 programas de nuestra agencia de posicionamiento web"
+    prices={[
+      {
+        title: 'Initium',
+        subtitle: 'Te llevo a 8.000€ al mes.',
+        price: 3500,
+        period: 'Impuestos incluidos',
+        items: [
+          {
+            description: 'Eso serían unos 100.000€ al año, el primer nivel de escala de cualquier negocio.',
+          },
+          {
+            description:
+              'Son brutos, evidentemente. Te quedará un sueldo de unos 2.000€ a 3.000€ en tu bolsillo, depende de a qué te dediques, pero nunca menos de eso.',
+          },
+          {
+            description: 'Trabajamos hasta que lleguemos a esa cifra, no hay mensualidades, es precio fijo.',
+          },
+          {
+            description:
+              'No debería hacer falta decirlo, pero lógicamente es por contrato. Si no cumplo te devuelvo el dinero.',
+          },
+          {
+            description:
+              'No va a pasar porque si no veo que puedo llegar sin problema, no te cojo como cliente y no pasa nada. Obviamente no es para todo el mundo.',
+          },
+        ],
+        callToAction: {
+          text: 'Haz el formulario para ver tu caso.',
+        },
+      },
+      {
+        title: 'Momentum',
+        subtitle: 'Te llevo a 40.000€ al mes.',
+        price: 10000,
+        period: 'Impuestos incluidos',
+        items: [
+          {
+            description: 'Eso serían unos 500.000€ al año, el segundo nivel de escala.',
+          },
+          {
+            description:
+              'El sueldo dependerá de a lo que te dediques y el ritmo de crecimiento que quieras tener. Si quieres llegar rápido al tercer programa, tendrás que tener un sueldo normal. Si quieres tener ya buena vida, habrá que ir más lento. Aquí tú decides. Para ser rico de verdad hay que pasar Apicem.',
+          },
+          {
+            description: 'Trabajamos hasta que lleguemos a esa cifra, no hay mensualidades, es precio fijo.',
+          },
+          {
+            description: 'Por contrato, lógicamente.',
+          },
+          {
+            description:
+              'Si veo que no puedo llevarte tan lejos, te lo digo sin problema. Los que empiezan en Initium y pueden escalar a Momentum llegan todos.',
+          },
+        ],
+        callToAction: {
+          text: 'Haz el formulario para ver tu caso.',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Llegan todos',
+      },
+      {
+        title: 'Apicem',
+        subtitle: 'Te llevo a 250.000€ al mes.',
+        price: 50000,
+        period: 'Impuestos incluidos',
+        items: [
+          {
+            description: 'Eso serían 3 millones de € al año, el tercer nivel de escala.',
+          },
+          {
+            description: 'Aquí ya podrás bajarte un muy buen sueldo.',
+          },
+          {
+            description: 'Trabajamos hasta que lleguemos a esa cifra, no hay mensualidades, es precio fijo.',
+          },
+          {
+            description: 'Por contrato.',
+          },
+          {
+            description:
+              'Si no llego te lo digo y no firmamos. A este nivel ya hay muchos negocios que no pueden llegar a no ser que cumplan una serie de características y la ambición del fundador esté a la altura de lo que se requiere para superar esta barrera.',
+          },
+        ],
+        callToAction: {
+          text: 'Haz el formulario para ver tu caso.',
+          variant: 'secondary',
+        },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent"></div>
+    </Fragment>
+  </Pricing>
+  <Features
+    tagline="El SEO es mucho más que el buscador de Google"
+    title="Hacemos todos estos tipos de SEO"
+    subtitle="Se puede hacer en todos los canales en los que están tus clientes. Hacemos el que toque en cada caso para llegar seguro y lo más rápido posible a completar el programa."
+    columns={3}
+    items={[
+      {
+        title: 'Posicionamiento en Google',
+        description:
+          'Si tienes una tienda online este es el SEO que tienes que hacer para asegurar un flujo de ventas sin depender de la publicidad. Hay pocos casos más donde este tipo de SEO sea la solución para tu negocio. Las búsquedas informacionales pueden traer bastante negocio pero cada vez tienen menos peso por culpa de la inteligencia artificial. Aún así, siempre miramos si conviene hacerlo.',
+        icon: 'tabler:brand-google',
+      },
+      {
+        title: 'Posicionamiento en Google Maps (SEO local)',
+        description:
+          'Si tu negocio es de ámbito local, prácticamente el 100% de los clientes entran por las fichas de Google. Hay que estar entre los 3 primeros para todas las palabras clave que nos puedan traer clientes y además ganar la comparación al resto de fichas.',
+        icon: 'tabler:brand-google-maps',
+      },
+      {
+        title: 'SEO en YouTube',
+        description:
+          'Depende del negocio, hay búsquedas que sólo pueden responderse de la mejor forma posible con un vídeo. YouTube es además el tercer buscador más utilizado del mundo, por detrás de Tiktok y Google. No se suele hacer SEO en YouTube en Initium, sólo a partir de Momentun, y no en todos los casos.',
+        icon: 'tabler:brand-youtube',
+      },
+      {
+        title: 'SEO en Tiktok',
+        description:
+          '¿Sabes que el buscador de Tiktok ya es el más utilizado del mundo? Yo me enteré hace poco. No es broma, llevo haciendo SEO en Tiktok desde 2022, pero me enteré pocos días antes de redactar esto (2024) que ya ha batido a Google en número de búsquedas. De locos.',
+        icon: 'tabler:brand-tiktok',
+      },
+      {
+        title: 'SEO en Instagram',
+        description:
+          'Muy importante desde el minuto 0 de trabajar redes sociales. El SEO en Instagram es la clave para conseguir que el algoritmo entienda quién es nuestro cliente y le muestre nuestro contenido. La gran mayoría (por no decir todas) de las cuentas de Instagram que no funcionan es porque no hacen bien el SEO. Sin SEO es imposible conseguir vender con Instagram.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: 'Ads para reforzar el SEO en estas plataformas',
+        description:
+          'A partir de Momentum la publicidad es prácticamente obligatoria. Esto implica que tendremos que trabajar el SEO igualmente porque es la mejor forma de estar preparados para crear los propios anuncios. Y es que el contenido de los anuncios y el orgánico que funciona debe ser el mismo. Esto es lo que nos permite llegar seguro a completar los programas.',
+        icon: 'tabler:photo-video',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent dark:bg-[rgba(0,0,0,0.5)]"></div>
+    </Fragment>
+  </Features>
+  <CallToAction
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Haz el formulario para ver tu caso',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle"
+      ><div class="dark:color:white">
+        Si quieres saber cómo aplicar esto a tu caso, rellena el formulario. No escatimes en detalles y podré echarte
+        una mano. En mi respuesta te llevas garantizado algo que puedes aplicar ya, trabajemos juntos o no. Si escatimas
+        en detalles no responderé.
+      </div></Fragment
+    >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent dark:bg-[rgba(0,0,0,0.7)]"></div>
+    </Fragment>
+  </CallToAction>
+  <FAQs
+    id="faq"
+    title="Preguntas que quizás te estás haciendo"
+    subtitle=""
+    items={[
+      {
+        title: '¿Cómo llegas a esas cantidades?',
+        description:
+          'A completar el primer programa, Initium, llego sólo con SEO el 100% de las veces. Obsesionándome con aumentar el Valor Medio de Pedido en primera compra y el Valor Medio de Cliente a lo largo del tiempo. Si optimizo esto en tu negocio, necesitas relativamente pocos clientes para llegar. Después para los siguientes programas haremos Ads, pero no se pueden hacer bien sin la base de SEO.',
+      },
+      {
+        title: '¿En cuánto tiempo se consigue el resultado de cada uno de los programas?',
+        description:
+          'El tiempo estimado si empiezas desde el nivel 0 de facturación de un programa hasta que se cumple es de 1 año.',
+      },
+      {
+        title: '¿Tengo que trabajar más de lo que ya trabajo?',
+        description:
+          'No creo. Esto es hacer solamente lo que funciona y quitar lo que no funciona. Es más estrategia que ejecución.',
+      },
+      {
+        title: '¿Y dices que garantizas por contrato que llego?',
+        description:
+          'Sí, porque si no estoy 200% seguro no te acepto como cliente. Prefiero perder una venta a tener un cliente insatisfecho.',
+      },
+      {
+        title: '¿Vale para mi caso?',
+        description:
+          'Salvo que vivas en una comuna hippie, donde el dinero no es la moneda de cambio... sí, vale para tu caso. Unos sectores son más chollo que otros, pero en general todo depende de cómo seas tú. Cuando digo que si no puedo garantizar el resultado no cojo el cliente me refiero a que el cliente no es la persona adecuada para llevar ese negocio. No depende nunca del tipo de negocio.',
+      },
+      {
+        title: '¿Qué tipo de SEO tengo que hacer en mi caso?',
+        description:
+          'Seguramente el de Google o Google Maps. En contadas ocasiones tenemos que irnos a otro sitio primero. Haz el formulario y te lo digo.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent dark:bg-[rgba(0,0,0,0.7)]"></div>
+    </Fragment>
+  </FAQs>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Haz el formulario para ver tu caso',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle"
+      ><div class="dark:color:white">
+        Si quieres saber cómo aplicar esto a tu caso, rellena el formulario. No escatimes en detalles y podré echarte
+        una mano. En mi respuesta te llevas garantizado algo que puedes aplicar ya, trabajemos juntos o no. Si escatimas
+        en detalles no responderé.
+      </div></Fragment
+    >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent dark:bg-[rgba(0,0,0,0.7)]"></div>
+    </Fragment>
+  </CallToAction>
+
+  <!-- Note Widget ******************* -->
+
+  <Note />
+
+  <!-- Features Widget *************** -->
+
+  <Features3
+    id="features"
+    columns={3}
+    tagline="Recomendaciones para contratar"
+    title="Si estás haciendo una comparativa de agencias de posicionamiento"
+    subtitle="Si vas a pedir presupuesto a otras empresas, tienes que fijarte en:"
+    items={[
+      {
+        title: 'Que no te haga falta pedir presupuesto.',
+        description:
+          'Lo siento, esta estaba a huevo. A lo mejor a ti te da confianza que te pongan el precio en función de la cara que lleves y el tamaño de tu cartera, a mí desde luego ninguna. Si un cliente no puede pagarme o no puedo conseguirle la promesa de los programas, no lo cojo y no pasa nada. Si el precio es el problema, seguramente ya te he espantado y eso significa que me he quitado de encima un cliente que no quiero tener sin necesidad de reunirme.',
+        icon: 'tabler:coin-euro',
+      },
+      {
+        title: 'Ten muy claro qué quieres conseguir con el SEO.',
+        description:
+          'Cifras, números, dinero. Es decir "quiero hacer SEO" no es un objetivo. El SEO se hace para ganar dinero, no para que tu web aparezca en los resultados de Google.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Las “mensualidades” y las permanencias.',
+        description:
+          'Para mí es lo mismo que el punto anterior. Si puedes prometer un resultado puedes cobrar un precio fijo exacto por ese resultado. Todo lo demás es "a ver cuánto soy capaz de sacarle". Nadie salva negocios por 300€ al mes. Si tienes esa habilidad y cobras eso es que NO tienes esa habilidad.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Si te dicen que hay que hacer un post a la semana y comprar enlaces.',
+        description:
+          'Si vas a hacer eso, vete a ChatGPT y le pides el artículo a él. Hay GPTs personalizados (23€ al mes) que te hacen unos artículos optimizados para posicionarse que son la pera. Bastante mejores de los que te harán las agencias de 300€ al mes. Los enlaces cómpraselos tú mismo a webs especializadas en lo tuyo y a periódicos y no se te saldrán más caros. Y serán muchísimo mejores. Pero no sirve para nada, una estrategia SEO de verdad consiste en posicionar la propia web para la búsqueda exacta que hace el cliente que va a comprar.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Las webs TIENEN QUE VENDER. Repito: TIENEN QUE VENDER.',
+        description:
+          'Webs con visitas y pocas o ninguna venta. Si metemos el tráfico en un blog y llenamos la web de curiosos que no vienen a comprar, ¿de qué nos sirve? ¿De que tenemos muchas palabras clave posicionadas?. Hay que meter en la web a la gente que viene a comprar, y después la web tiene que estar hecha para que no se vayan sin comprar. Si no hacemos esto, no sirve de nada.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'La "excusa" del algoritmo.',
+        description:
+          'Cuando se hacen las cosas bien, las webs no se caen. Lo normal, de hecho, es que las actualizaciones del algoritmo la beneficien y se mantenga arriba durante muchos años. Una buena agencia SEO es de la que no dependes para que siga funcionando cuando ya lo has hecho bien. Por eso los proyectos tienen un principio y un final. Esto no es "a ver hasta qué mes sigue pagando el cliente" mientras sigo haciendo 1 artículo por semana y compro 100€ en granjas de enlaces que me van quitando cada poco y tengo que volver a pagar para que me los vuelvan a poner. Para eso gástalos en publicidad.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+    ><Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent dark:bg-[rgba(0,0,0,0.7)]"></div>
+    </Fragment>
+  </Features3>
+
+  <CTA
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Haz el formulario para ver tu caso',
+      },
+    ]}
+    ><Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent sm:dark:bg-[rgba(0,0,0,0.5)]"></div>
+    </Fragment></CTA
+  >
+  <Steps
+    title="¿Cómo funciona el servicio?"
+    isReversed="{true}"
+    items={[
+      {
+        title: 'Fase 1: <span class="font-medium">Respuesta al formulario.</span>',
+        description:
+          'Una vez que rellenes el formulario, te responderé si no parece un telegrama, veré tu negocio y te diré si podemos continuar o no. En caso negativo, te daré la mejor guía posible adaptada 100% a tu caso en el email de respuesta.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Fase 2: <span class="font-medium">Análisis y asesoría.</span>',
+        description:
+          'En caso de poder seguir adelante, te enviaré un enlace para que tengamos una videollamada. Esto no garantiza que te pueda decir que sí trabajamos juntos. Lo único que te puedo garantizar en este punto es que tu negocio puede llegar seguro, ahora sólo falta que tú seas la persona adecuada para hacerlo. Lo veré en esta fase. En cualquier caso te llevas todo lo que cuento en el vídeo 100% aplicado a tu caso, y puedes preguntarme lo que quieras.',
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Fase 3: <span class="font-medium">Entras en el programa correspondiente a tu volumen de negocio</span>',
+        description:
+          'En la fase 2 te digo todo lo que tenemos que hacer y en esta lo implementamos. Firmamos contrato, haces el pago y trabajamos hasta superar el programa.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Superamos el programa y pasamos al siguiente.',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Fases para contratar agencia de marketing',
+    }}
+    ><Fragment slot="bg">
+      <div class="absolute inset-0 bg-transparent sm:dark:bg-[rgba(0,0,0,0.5)]"></div>
+    </Fragment>
+  </Steps>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Hacer el formulario',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      <ul>
+        <li>
+          Seguramente haya que cambiar tu web. Vamos, seguro no, casi 100% seguro, como mínimo los textos, aunque
+          respetemos el diseño.
+        </li>
+        <br />
+        <li>
+          Así que tanto si trabajas con AH SEO como si lo haces con otra agencia, la web siempre debería estar incluida.
+        </li>
+      </ul>
+    </Fragment>
+  </CallToAction>
+</Layout>

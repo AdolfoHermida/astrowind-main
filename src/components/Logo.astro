@@ -1,0 +1,12 @@
+---
+import Image from 'astro/components/Image.astro';
+import logoLight from '../images/AH_SEO_negro_sin_fondo.png';
+import logoDark from '../images/AH_SEO_blanco_sin_fondo.png';
+---
+
+<span
+  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+>
+  <Image src={logoLight} alt="AH SEO" width={186} height={48} class="inline-block dark:hidden" />
+  <Image src={logoDark} alt="AH SEO" width={186} height={48} class="hidden dark:inline-block" />
+</span>

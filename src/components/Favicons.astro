@@ -1,0 +1,8 @@
+---
+import Image from 'astro/components/Image.astro';
+import favicon from '../images/favicon.png';
+---
+
+<!-- Favicon -->
+<link rel="shortcut icon" href={favicon.src} />
+<Image src={favicon} alt="Favicon" width={32} height={32} style="display:none;" />

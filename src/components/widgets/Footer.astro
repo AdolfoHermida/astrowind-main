@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getHomePermalink } from '~/utils/permalinks';
+
+// Sobrescribe la configuración del enlace del tema aquí
+const legalLink = {
+  text: 'Legal',
+  href: '/legal', // Asegúrate de que esta ruta sea correcta y corresponda con tu página de política de privacidad
+};
+---
+
+<footer class="relative border-t border-gray-200 dark:border-slate-800 not-prose">
+  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
+    <div class="flex flex-col items-center gap-4 gap-y-8 sm:gap-8 py-8 md:py-12 text-center">
+      <div>
+        <div class="mb-2">
+          <a class="inline-block font-bold text-xl" href={getHomePermalink()}>AH SEO Agencia de Marketing León</a>
+        </div>
+        <div class="text-sm text-muted flex flex-col lg:flex-row lg:justify-center lg:items-center gap-1">
+          <p>C. Jorge de Montemayor, 2, 3ºD, 24007 León</p>
+          <span class="hidden lg:inline"> · </span>
+          <p>722 61 92 21</p>
+          <span class="hidden lg:inline"> · </span>
+          <a
+            class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+            href={legalLink.href}
+          >
+            {legalLink.text}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
